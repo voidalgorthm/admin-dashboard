@@ -3,9 +3,11 @@
     --general-theme-bgcolor: #FFF;
     --general-theme-color: #000;
     --general-theme-font: sans-serif;
-    --special-theme-bgcolor: #333041;
-    --special-theme-color: #FFF;
-    --fade-theme-color: #bccbde;
+    --special-theme-bgcolor: #c2410c;
+    --special-theme-color: #FFB;
+    --extremities-theme-bgcolor: linear-gradient(to top, #3366ff 0%, #ff6666 100%) 1 100%;
+    --extremities-theme-color: #FFF;
+    --fade-theme-color: #bccbde; /* #e2e8f0 */
     --heading-font-size: 2rem;
     --title-font-size: 1.8rem;
     --subtitle-font-size: 1.6rem;
@@ -17,7 +19,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-align: center;
+    text-align: start;
 }
 
 .container {
@@ -28,7 +30,7 @@
 
 .container div {
     padding: 1.5rem;
-    font-size: 2rem;
+    font-size: var(--text-font-size);
     font-family: var(--general-theme-font);
 }
 
@@ -39,7 +41,7 @@ button {
 }
 
 img.icon {
-    height: 2rem;
+    height: 2.5rem;
 }
 
 img.avatar {
@@ -58,20 +60,23 @@ button.settings {
     background-color: var(--special-theme-bgcolor);
     color: var(--special-theme-color);
     height: auto;
-    text-align: start;
     font-size: var(--subtitle-font-size);
+    font-weight: bold;
 }
 
 button.actions {
+    background-color: var(--special-theme-bgcolor);
+    color: var(--special-theme-color);
     width: 8rem;
     height: 3rem;
     font-weight: bold;
     border-radius: 2rem;
+    text-align: center;
 }
 
 button.account {
+    background-color: inherit;
     width: auto;
-    height: 3rem;
     font-size: var(--subtitle-font-size);
 }
 
@@ -115,7 +120,7 @@ div.dashboard {
     color: var(--special-theme-color);
     display: grid;
     grid-template-columns: 3rem 1fr;
-    gap: 3rem;
+    gap: 2rem;
     padding: 0;
 }
 
@@ -125,18 +130,20 @@ div.header {
     display: grid;
     grid-template-rows: auto 1fr;
     grid-template-columns: 2fr 1fr;
-    padding: 0;
+    padding: 1rem;
 }
 
 div.search {
     grid-column: 1 / 2;
     display: flex;
+    place-items: center;
     gap: 2rem;
+    padding: 1rem .5rem;
 }
 
 input[type="search"] {
     background-color: var(--fade-theme-color);
-    height: 3rem;
+    height: 2.5rem;
     border: none;
     border-radius: 2rem;
     flex: 1;
@@ -145,17 +152,20 @@ input[type="search"] {
 div.info {
     grid-column: 2 / 3;
     display: flex;
-    gap: 1rem;
     place-items: center;
     justify-content: space-evenly;
+    gap: 1rem;
+    padding: 0;
 }
 
 div.greeting {
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: repeat(2, 1fr);
-    gap: 2rem;
-    place-items: center;
+    gap: 1rem;
+    align-items: center;
+    justify-items: start;
+    padding: 0 5rem;
 }
 
 div.share {
@@ -163,6 +173,7 @@ div.share {
     grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
     gap: 2rem;
     place-items: center;
+    padding: 0;
 }
 
 div.main {
@@ -176,22 +187,36 @@ div.projects {
     /* grid-column: 1 / 2; */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    grid-template-rows: auto 1fr;
-    grid-auto-rows: 1fr;
+    grid-template-rows: 2.5rem 15rem /* auto repeat(auto-fill, minmax(15rem, 20rem) )*/;
+    grid-auto-rows: 15rem;
     gap: 1rem;
     padding: 0;
 }
 
-.projects .card {
+div.card {
     background-color: var(--general-theme-bgcolor);
     color: var(--general-theme-color);
-    height: 20rem;
-    border-radius: 2rem;
+    height: 15rem;
+    border-radius: 1rem;
+    display: grid;
+    grid-template-rows: 2rem auto 2.5rem;
+    padding: 3rem 1.5rem;
+    border-left-width: .5rem;
+    border-left-style: solid;
+    border-image: var(--extremities-theme-bgcolor);
 }
 
 .card p {
     color: var(--general-theme-color);
-    padding: 1rem;
+}
+
+div.actionbar {
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 2rem;
+    padding: 0;
 }
 
 div.bulletin {
@@ -214,6 +239,11 @@ div.announcements {
 
 div.trending {
     grid-row: 2 / 3;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-auto-rows: 1fr;
+    padding: 0 2rem;
+    gap: 1rem;
 }
 
 div.section {
@@ -221,7 +251,22 @@ div.section {
     color: var(--general-theme-color);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 25rem));
-    border-radius: 2rem;
+    border-radius: 1rem;
+    align-items: center;
+    justify-items: start;
+    border-left-width: .5rem;
+    border-left-style: solid;
+    border-image: var(--extremities-theme-bgcolor);
+}
+
+div.content {
+    align-items: center;
+    justify-items: start;
+    border-bottom: 1px solid black;
+}
+
+div.content:last-child {
+    border: none;
 }
 
 div.connection {
@@ -230,7 +275,7 @@ div.connection {
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: repeat(2, 1fr);
-    gap: .5rem;
+    gap: 1rem;
     place-items: center;
     border-radius: 2rem;
 }
