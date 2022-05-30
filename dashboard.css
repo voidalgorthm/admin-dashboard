@@ -52,8 +52,8 @@ img.avatar {
 }
 
 img.avatar.bigger {
-    width: 6rem;
-    height: 6rem;
+    width: 5rem;
+    height: 5rem;
 }
 
 button.settings {
@@ -87,6 +87,7 @@ button:active {
 .heading {
     font-size: var(--heading-font-size);
     font-weight: bold;
+    align-self: center;
 }
 
 .title {
@@ -147,6 +148,7 @@ input[type="search"] {
     border: none;
     border-radius: 2rem;
     flex: 1;
+    text-align: center;
 }
 
 div.info {
